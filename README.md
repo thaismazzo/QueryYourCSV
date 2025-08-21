@@ -1,22 +1,39 @@
-# QueryYourCSV
+## QueryYourCSV
 
-QueryYourCSV is a project focused on using the **Text to SQL** technique to analyze .csv databases.  
-It allows users to input natural language queries and extract valuable information out of them.
-
----
-
-## 📝 Description
-
-This project transforms natural language commands into SQL queries, which makes it easier to explore databases without writing SQL manually or performing long sheet equations.
+QueryYourCSV is a project that leverages **Text-to-SQL** technique to analyze `.csv` databases.  
+It enables users to ask questions in natural language and explore their CSV files effortlessly, making it easier to extract meaningful insights from their data.
 
 ---
 
+## 🔧 Tools and Techniques
+
+This workflow was built with python as backend and streamlit as frontend. We are using a common **agentic AI framework** called **LangGraph**. We have a main node which is called 'db_analyser'. This main agent has access to a tool called 'generate_sql_query'. This tool is called whenever the agent needs an answer based on a SQL query.
+
+For the database we are using SQLite, which means that the database will be saved locally.
+
+For processing the .csv file we are using pandas python lib.
+
+---
+
+## 📝 Project Structure
+
+| Folder / File | Description |
+|---------------|-------------|
+| `core/agents.py` | Defines the AI agents that process questions and interact with tools. |
+| `core/tools.py` | Implements the tools available to agents, e.g., `generate_sql_query`. |
+| `core/model.py` | Configuration of the LLM (Large Language Model) used by the agents. |
+| `core/preprocess` | Scripts for processing and cleaning `.csv` files. |
+| `core/prompts` | Prompts used by agents (organized for clean code). |
+| `app.py` | Main **Streamlit** app that provides the user interface. |
+| `logger.py` | Logging utility to help track the flow and debug steps. |
+
+---
 ## 🚀 How to Use
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your_username/TextToSql.git
-cd TextToSql
+git clone https://github.com/thaismazzo/QueryYourCSV.git
+cd QueryYourCSV
 ```
 ### 2. Insert .env with your OPENAI_API_KEY. Please be aware that you can change the model of your preference on the folder core/model.py
 ### 3. Open your Docker Engine
