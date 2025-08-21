@@ -1,0 +1,9 @@
+streamlit
+pydantic
+pandas
+openpyxl
+SQLAlchemy
+langchain
+langgraph
+langchain-openai
+python-dotenv
